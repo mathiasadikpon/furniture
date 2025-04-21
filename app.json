@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "furniture",
+    "slug": "furniture",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
