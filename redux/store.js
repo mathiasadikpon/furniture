@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { furnituresReducer } from "../features/furnitures/furnituresSlice";
 
 const config = {
   key: "root",
@@ -21,11 +22,7 @@ const config = {
 export const store = configureStore({
   reducer: persistCombineReducers(config, {
     // Add your reducers here
-    // Example: user: userReducer,
-    // products: productsReducer,
-    // cart: cartReducer,
-    // orders: ordersReducer,
-    // etc.
+    furnitures: furnituresReducer
   }),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
