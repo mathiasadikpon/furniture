@@ -12,7 +12,7 @@ import { baseUrl } from "../../shared/baseUrl";
 import * as Animatable from "react-native-animatable";
 
 const RenderFurniture = (props) => {
-  const { campsite } = props;
+  const { furniture } = props;
 
   const view = useRef();
 
@@ -33,7 +33,7 @@ const RenderFurniture = (props) => {
       if (isLeftSwipe(gestureState)) {
         Alert.alert(
           "Add Favorite",
-          "Are you sure you wish to add " + campsite.name + " to favorites?",
+          "Are you sure you wish to add " + furniture.name + " to favorites?",
           [
             {
               text: "Cancel",
@@ -56,7 +56,7 @@ const RenderFurniture = (props) => {
     },
   });
 
-  const shareCampsite = (title, message, url) => {
+  const shareFurniture = (title, message, url) => {
     Share.share(
       {
         title,
@@ -69,7 +69,7 @@ const RenderFurniture = (props) => {
     );
   };
 
-  if (campsite) {
+  if (furniture) {
     return (
       <Animatable.View
         animation="fadeInDownBig"
@@ -79,12 +79,12 @@ const RenderFurniture = (props) => {
         {...panResponder.panHandlers}
       >
         <Card containerStyle={styles.cardContainer}>
-          <Card.Image source={{ uri: baseUrl + campsite.image }}>
+          <Card.Image source={{ uri: baseUrl + furniture.image }}>
             <View style={{ justifyContent: "center", flex: 1 }}>
-              <Text style={styles.cardText}>{campsite.name}</Text>
+              <Text style={styles.cardText}>{furniture.name}</Text>
             </View>
           </Card.Image>
-          <Text style={{ margin: 20 }}>{campsite.description}</Text>
+          <Text style={{ margin: 20 }}>{furniture.description}</Text>
           <View style={styles.cardRow}>
             <Icon
               name={props.isFavorite ? "heart" : "heart-o"}
@@ -113,10 +113,10 @@ const RenderFurniture = (props) => {
               raised
               reverse
               onPress={() =>
-                shareCampsite(
-                  campsite.name,
-                  campsite.description,
-                  baseUrl + campsite.image
+                shareFurniture(
+                  furniture.name,
+                  furniture.description,
+                  baseUrl + furniture.image
                 )
               }
             />
