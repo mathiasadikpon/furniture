@@ -1,4 +1,5 @@
-import { View } from "react-native-animatable";
+import { View } from "react-native";
+import { Text } from "react-native-elements";
 
 const HomeScreen = () => {
  
